@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Actualizar Local BCP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container">
+
+<h2 class="mt-4">Editar Datos del Local</h2>
+<hr>
+
+<form th:action="@{/locales/guardar}" th:object="${local}" method="post" class="col-md-6 mt-3">
+
+    <input type="hidden" th:field="*{localId}">
+
+    <div class="form-group">
+        <label>Nombre de la Agencia:</label>
+        <input type="text" th:field="*{name}" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label>Ubicación:</label>
+        <select th:field="*{floor}" class="form-control">
+            <option value="Piso 1">Piso 1</option>
+            <option value="Piso 2">Piso 2</option>
+            <option value="Piso 3">Piso 3</option>
+            <option value="Sótano">Sótano</option>
+        </select>
+    </div>
+
+    <div class="mt-4">
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        <a href="/locales" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>
+
+</body>
+</html>
